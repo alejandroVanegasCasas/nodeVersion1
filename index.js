@@ -53,7 +53,7 @@ app.post('/productos',async(req,res)=>{
 });
 
 //actualizacion
-app.post('/productos/:ref', async (req,res)=>{
+app.put('/productos/:ref', async (req,res)=>{
     const productoEditar = {
         referencia: req.params.ref,
         nombre: req.body.nombreProducto,
@@ -64,12 +64,33 @@ app.post('/productos/:ref', async (req,res)=>{
         habilitado: true,
     };
 
-    let Actualizacion = await modeloProducto.updateOne({referencia:req.params.ref},productoEditar);
+    let Actualizacion = await modeloProducto.findOneAndUpdate({referencia:req.params.ref},productoEditar);
     if(Actualizacion)
         res.status(200).json({"mensaje":"Se ha actualizado correctamente..."})
     else    
         res.status(404).json({"mensaje":"Ha ocurrido un error..."})
 });
+
+//eliminar
+// app.delete('/productos/:ref',async (req,res)=>{
+//     console.log(req.params.ref , req.body.referenciaProducto)
+//     let eliminacion = await modeloProducto.findOneAndDelete({referencia:req.params.ref});
+//     if(eliminacion)
+//         res.status(200).json({"mensaje":"Se ha eliminado correctamente..."})
+//     else
+//         res.status(404).json({"mensaje":"Ha ocurrido un error..."})
+// });
+
+app.delete('/productos/:ref', async (req, res) => {
+    console.log(req.params.ref);
+    let eliminacion = await modeloProducto.findOneAndDelete({ referencia: req.params.ref });
+    if (eliminacion) {
+        res.status(200).json({ "mensaje": "Se ha eliminado correctamente..." });
+    } else {
+        res.status(404).json({ "mensaje": "Ha ocurrido un error..." });
+    }
+});
+
 
 
 
