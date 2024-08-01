@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+header nav ul li {
+    margin-right: 20px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+header .login form {
+    display: flex;
+    align-items: center;
+}
+
+header .login input {
+    margin-right: 10px;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+}
+
+header .login button {
+    padding: 5px 10px;
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+header .login button:hover {
+    background-color: #004080;
+}
+
+main {
+    padding: 20px;
+}
+
+main section {
+    margin-bottom: 40px;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#vendedor">Vendedor</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#clientes">Clientes</a></li>
+            </ul>
+        </nav>
+        <div class="login">
+            <form action="/login" method="POST">
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </header>
+    
+    <main>
+        <section id="vendedor">
+            <h2>Vendedor</h2>
+            <p>Información sobre los vendedores.</p>
+        </section>
+
+        <section id="productos">
+            <h2>Productos</h2>
+            <p>Lista de productos disponibles.</p>
+        </section>
+
+        <section id="clientes">
+            <h2>Clientes</h2>
+            <p>Información sobre nuestros clientes.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Mi Empresa</p>
+    </footer>
+</body>
+</html>

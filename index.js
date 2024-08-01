@@ -1,27 +1,46 @@
 const exp = require('express');
 const app = exp();
 const modeloProducto = require('./backend/models/productos.model');
+const path = require('path');
+const logger = require('morgan');
 
-const logger = require('morgan')
+const router = require('./backend/routes/enrutador.routes');
+app.use('/v1', router);
+
 app.use(logger('dev'));
 
-app.use(exp.urlencoded({extended: false}));
-app.use(exp.json())
+app.use(exp.urlencoded({ extended: false }));
+app.use(exp.json());
 
-// let modeloProducto = require('./backend/models/productos.model')
-// app.get('/productos', async (req,res)=>{
-//     let listadoProductos = await modeloProducto.find();
-//     res.status(200).json(listadoProductos);
-// });
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, './frontend/views'));
+app.use(exp.static(path.join(__dirname, './frontend/statics/')));
+
+// Ruta para la landing page
+app.get('/inicio', (req, res) => {
+    res.render('pages/index2'); // 'pages/index2' asume que index2.ejs está en frontend/views/pages
+});
+
+
+
+// Ruta para mostrar productos (ejemplo existente)
+app.get('/mostrar', async (req, res) => {
+    try {
+        const lista = await modeloProducto.find();
+        res.render('pages/index', { lista });
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
 
 //consulta
-app.get('/productos', async (req,res)=>{
-    let listadoProductos = await modeloProducto.find();
-    if(listadoProductos)
-        res.status(200).json(listadoProductos);
-    else
-        res.status(404).json({error: "No se encontraron productos"});
-});
+// app.get('/productos', async (req,res)=>{
+//     let listadoProductos = await modeloProducto.find();
+//     if(listadoProductos)
+//         res.status(200).json(listadoProductos);
+//     else
+//         res.status(404).json({error: "No se encontraron productos"});
+// });
 
 //consulta pasando un parametro
 app.get('/productos/:ref', async (req,res)=>{
@@ -72,24 +91,16 @@ app.put('/productos/:ref', async (req,res)=>{
 });
 
 //eliminar
-// app.delete('/productos/:ref',async (req,res)=>{
-//     console.log(req.params.ref , req.body.referenciaProducto)
-//     let eliminacion = await modeloProducto.findOneAndDelete({referencia:req.params.ref});
-//     if(eliminacion)
-//         res.status(200).json({"mensaje":"Se ha eliminado correctamente..."})
-//     else
-//         res.status(404).json({"mensaje":"Ha ocurrido un error..."})
-// });
-
-app.delete('/productos/:ref', async (req, res) => {
-    console.log(req.params.ref);
-    let eliminacion = await modeloProducto.findOneAndDelete({ referencia: req.params.ref });
-    if (eliminacion) {
-        res.status(200).json({ "mensaje": "Se ha eliminado correctamente..." });
-    } else {
-        res.status(404).json({ "mensaje": "Ha ocurrido un error..." });
-    }
+app.delete('/productos/:ref',async (req,res)=>{
+    console.log(req.params.ref , req.body.referenciaProducto)
+    let eliminacion = await modeloProducto.findOneAndDelete({referencia:req.params.ref});
+    if(eliminacion)
+        res.status(200).json({"mensaje":"Se ha eliminado correctamente..."})
+    else
+        res.status(404).json({"mensaje":"Ha ocurrido un error..."})
 });
+
+
 
 
 

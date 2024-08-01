@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head'); %>
+</head>
+<body class="container">
+
+    <header>
+        <%- include('../partials/header'); %>
+    </header>
+
+    <main>
+        <div class="jumbotron">
+            <h1>Productos</h1>
+            
+            <ul>
+                <% lista.forEach(function(producto) { %>
+                    <li>
+                        <strong>Referencia:</strong> <%= producto.referencia %><br>
+                        <strong>Nombre:</strong> <%= producto.nombre %><br>
+                        <strong>Descripción:</strong> <%= producto.descripcion %><br>
+                        <strong>Precio:</strong> $<%= producto.precio %><br>
+                        <strong>Stock:</strong> <%= producto.stock %><br>
+                        <strong>Imagen:</strong> <img src="<%= producto.imagen %>" alt="<%= producto.nombre %>" style="width:100px;height:100px;"><br>
+                    </li>
+                <% }); %>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <%- include('../partials/footer'); %>
+    </footer>
+
+</body>
+</html>

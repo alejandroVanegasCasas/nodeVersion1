@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tienda Sport</title>
+    <link rel="stylesheet" href="/estilos/estilos.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul><li><a href="#inicio">Inicio</a></li>
+                <li><a href="#vendedor">Vendedor</a></li>
+                <li><a href="http://localhost:9090/mostrar">Productos</a></li>
+                <li><a href="#clientes">Clientes</a></li>
+            </ul>
+        </nav>
+        <div class="login">
+            <form action="/login" method="POST">
+                <input type="text" name="username" placeholder="Usuario" required>
+                <input type="password" name="password" placeholder="Contraseña" required>
+                <button type="submit">Ingresar</button>
+            </form>
+        </div>
+    </header>
+    
+    <main>
+        <div class="login">
+            <div class="login-screen">
+                <div class="app-title">
+                    <h1>Login</h1>
+                </div>
+    
+                <div class="login-form">
+                    <div class="control-group">
+                    <input type="text" class="login-field" value="" placeholder="username" id="login-name">
+                    <label class="login-field-icon fui-user" for="login-name"></label>
+                    </div>
+    
+                    <div class="control-group">
+                    <input type="password" class="login-field" value="" placeholder="password" id="login-pass">
+                    <label class="login-field-icon fui-lock" for="login-pass"></label>
+                    </div>
+    
+                    <a class="btn btn-primary btn-large btn-block" href="#">login</a>
+                    <a class="login-link" href="#">Lost your password?</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 SportStore</p>
+    </footer>
+</body>
+</html>

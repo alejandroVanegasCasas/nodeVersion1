@@ -1,0 +1,154 @@
+body {
+    background-image: url('https://media.licdn.com/dms/image/D4E12AQFnG10KZ5IG5Q/article-cover_image-shrink_720_1280/0/1679519011502?e=2147483647&v=beta&t=TS_UDKMvfoD_akQz1Bbt7cDT7VUZWMixy0ZTYV-usFE');
+    background-size: cover;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+header {
+    background-color: #575555;
+    color: white;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+header nav ul li {
+    margin-right: 80px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+header .login form {
+    display: flex;
+    align-items: center;
+}
+
+header .login input {
+    margin-right: 5px;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+}
+
+header .login button {
+    padding: 5px 10px;
+    background-color: #0066cc;
+    color: rgb(14, 13, 13);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+header .login button:hover {
+    background-color: #052442;
+}
+
+main {
+    padding: 20px;
+}
+
+main div {
+    margin-bottom: 0px;
+}
+
+footer {
+    background-color: hsl(236, 92%, 19%);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/*estilos login*/
+
+* {
+    box-sizing: border-box;
+    }
+    
+    *:focus {
+        outline: none;
+    }
+    
+    .login {
+    margin: 20px auto;
+    width: 300px;
+    }
+    .login-screen {
+    background-color: #e4e5f8;
+    padding: 20px;
+    border-radius: 5px
+    }
+    
+    .app-title {
+    text-align: center;
+    color: #0e0d0d;
+    }
+    
+    .login-form {
+    text-align: center;
+    }
+    .control-group {
+    margin-bottom: 10px;
+    }
+    
+    input {
+    text-align: center;
+    background-color: #ECF0F1;
+    border: 2px solid transparent;
+    border-radius: 3px;
+    font-size: 16px;
+    font-weight: 200;
+    padding: 10px 0;
+    width: 250px;
+    transition: border .5s;
+    }
+    
+    input:focus {
+    border: 2px solid #3498DB;
+    box-shadow: none;
+    }
+    
+    .btn {
+      border: 2px solid transparent;
+      background: #3498DB;
+      color: #ffffff;
+      font-size: 16px;
+      line-height: 25px;
+      padding: 10px 0;
+      text-decoration: none;
+      text-shadow: none;
+      border-radius: 3px;
+      box-shadow: none;
+      transition: 0.25s;
+      display: block;
+      width: 250px;
+      margin: 0 auto;
+    }
+    
+    .btn:hover {
+      background-color: #2980B9;
+    }
+    
+    .login-link {
+      font-size: 12px;
+      color: #444;
+      display: block;
+        margin-top: 12px;
+    }
